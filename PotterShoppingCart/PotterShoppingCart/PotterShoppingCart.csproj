@@ -40,6 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BookStore.cs" />
+    <Compile Include="Logistic\FiveDifferentBook.cs" />
     <Compile Include="Logistic\FourDifferentBook.cs" />
     <Compile Include="Logistic\IBook.cs" />
     <Compile Include="Logistic\OneBook.cs" />
