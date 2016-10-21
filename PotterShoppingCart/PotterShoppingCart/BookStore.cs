@@ -16,10 +16,16 @@ namespace PotterShoppingCart
 
         public double CountTotalPay()
         {
+
             if (shoppingCart.Books.Count == 1)
+            {
                 return shoppingCart.Books.Count * 100;
-            else
-                return 0;
+            }
+            else if (shoppingCart.Books.Distinct().Count() == 2 && shoppingCart.Books.Count == 2)
+            {
+                return shoppingCart.Books.Distinct().Count() * 100 * 0.95;
+            }
+            return 0;
         }
     }
 
