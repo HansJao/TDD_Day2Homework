@@ -36,6 +36,9 @@ namespace PotterShoppingCart
             else if (shoppingCart.Books.Distinct().Count() == 3 && shoppingCart.Books.Count == 3)
             {
                 return new ThreeDifferentBook();
+            }else if (shoppingCart.Books.Distinct().Count() == 4 && shoppingCart.Books.Count == 4)
+            {
+                return new FourDifferentBook();
             }
             return null;
         }
