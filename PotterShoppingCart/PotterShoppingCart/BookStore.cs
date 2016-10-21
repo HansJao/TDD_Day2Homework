@@ -25,6 +25,10 @@ namespace PotterShoppingCart
             {
                 return shoppingCart.Books.Distinct().Count() * 100 * 0.95;
             }
+            else if (shoppingCart.Books.Distinct().Count() == 3 && shoppingCart.Books.Count == 3)
+            {
+                return shoppingCart.Books.Distinct().Count() * 100 * 0.9;
+            }
             return 0;
         }
     }

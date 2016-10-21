@@ -48,7 +48,7 @@ namespace PotterShoppingCart.Tests
         {
             var Books = new ShoppingCart
             {
-                Books = new List<string> { "Book1", "Book2","Books3" }
+                Books = new List<string> { "Book1", "Book2","Book3" }
             };
 
 
