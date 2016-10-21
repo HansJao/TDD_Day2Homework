@@ -7,19 +7,26 @@ namespace PotterShoppingCart
 {
     public class BookStore
     {
-        public BookStore(IList<ShoppingCart> Books)
+        private ShoppingCart shoppingCart;
+
+        public BookStore(ShoppingCart shoppingCart)
         {
-                
+            this.shoppingCart = shoppingCart;
         }
 
         public double CountTotalPay()
         {
-            throw new NotImplementedException();
+            if (shoppingCart.Books.Count == 1)
+                return shoppingCart.Books.Count * 100;
+            else
+                return 0;
         }
     }
 
     public class ShoppingCart
     {
-        public string Book { get; set; }
+        public List<string> Books { get; set; }
+        public double Fee { get; set; }
     }
+
 }

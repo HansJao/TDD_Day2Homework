@@ -13,17 +13,18 @@ namespace PotterShoppingCart.Tests
         [TestMethod()]
         public void Test_ShoppingCart_Buy_1Book_Should_Pay_100()
         {
-            List<ShoppingCart> shoppingCart = new List<ShoppingCart>
+            var Books = new ShoppingCart
             {
-                new ShoppingCart {Book="Book1" }
+                Books = new List<string> { "Book1"}
             };
-
-            var target = new BookStore(shoppingCart);
             
+
+            var target = new BookStore(Books);
+
             double Actual = target.CountTotalPay();
             double expected = 100;
 
-            Assert.AreEqual(expected,100);
+            Assert.AreEqual(expected, Actual);
         }
     }
 }
