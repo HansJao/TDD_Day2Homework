@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PotterShoppingCart.Logistic;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,20 +17,27 @@ namespace PotterShoppingCart
 
         public double CountTotalPay()
         {
+            IBook book = GetBook();
+            shoppingCart.Fee = book.CalculateFee(shoppingCart);
 
+            return shoppingCart.Fee;
+        }
+
+        private IBook GetBook()
+        {
             if (shoppingCart.Books.Count == 1)
             {
-                return shoppingCart.Books.Count * 100;
+                return new OneBook();
             }
             else if (shoppingCart.Books.Distinct().Count() == 2 && shoppingCart.Books.Count == 2)
             {
-                return shoppingCart.Books.Distinct().Count() * 100 * 0.95;
+                return new TwoDifferentBook();
             }
             else if (shoppingCart.Books.Distinct().Count() == 3 && shoppingCart.Books.Count == 3)
             {
-                return shoppingCart.Books.Distinct().Count() * 100 * 0.9;
+                return new ThreeDifferentBook();
             }
-            return 0;
+            return null;
         }
     }
 
