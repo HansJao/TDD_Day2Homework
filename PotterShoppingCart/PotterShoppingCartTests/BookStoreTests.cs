@@ -26,5 +26,22 @@ namespace PotterShoppingCart.Tests
 
             Assert.AreEqual(expected, Actual);
         }
+
+        [TestMethod()]
+        public void Test_ShoppingCart_Buy_2Book_Should_Pay_190()
+        {
+            var Books = new ShoppingCart
+            {
+                Books = new List<string> { "Book1","Book2" }
+            };
+
+
+            var target = new BookStore(Books);
+
+            double Actual = target.CountTotalPay();
+            double expected = 190;
+
+            Assert.AreEqual(expected, Actual);
+        }
     }
 }
