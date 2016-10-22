@@ -8,22 +8,22 @@ namespace PotterShoppingCart
 {
     public class BookStore
     {
-        private ShoppingCart shoppingCart;
+        private ShoppingCart _shoppingCart;
 
         public BookStore(ShoppingCart shoppingCart)
         {
-            this.shoppingCart = shoppingCart;
+            this._shoppingCart = shoppingCart;
         }
 
         public double CountTotalPay()
         {
-            IBook book = GetBook();
-            shoppingCart.Fee = book.CalculateFee(shoppingCart);
 
-            return shoppingCart.Fee;
+            IBook book = GetBook(_shoppingCart);
+            _shoppingCart.Fee = book.CalculateFee(_shoppingCart);
+            return _shoppingCart.Fee;
         }
 
-        private IBook GetBook()
+        private IBook GetBook(ShoppingCart shoppingCart)
         {
             if (shoppingCart.Books.Count == 1)
             {
@@ -45,7 +45,10 @@ namespace PotterShoppingCart
             {
                 return new FiveDifferentBook();
             }
-            return null;
+            else
+            {
+                return new OtherBookOrder();
+            }
         }
     }
 
